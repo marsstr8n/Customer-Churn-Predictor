@@ -2,6 +2,7 @@ from src.data_loader import load_data, stratified_split, preprocessing_pipeline
 import pandas as pd
 from src.evaluate import ModelEvaluator
 from src.model import train_logistic_model
+from src.shap_utils import shap_explainer
 
 # load data
 telco_churn = load_data() # load the customer data
@@ -45,6 +46,7 @@ X_test_df = pd.DataFrame(X_test_prepared, columns=all_feature_names, index=test.
 clf = train_logistic_model(X_train_df, y_train)
 
 # Model evaluator
-evaluator = ModelEvaluator(X_test_df, y_test, target_names=["No Churn", "Churn"])
+evaluator = ModelEvaluator(X_test_df, y_test, target_names=["No Churn", "Churn"], mode="console")
 evaluator.evaluate(clf)
 
+shap_explainer(clf, X_train_df, X_test_df)
