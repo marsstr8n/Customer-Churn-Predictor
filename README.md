@@ -65,6 +65,7 @@ Before deploying the app, all components were:
 - Add model selection dropdown in dashboard
 - Allow user to input their own customer data, and the deployed model can predict whether the customer would churn
 - Deploy on Streamlit Cloud
+- Simulate ROI
 
 ---
 
