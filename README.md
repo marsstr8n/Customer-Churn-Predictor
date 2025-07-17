@@ -1,6 +1,6 @@
 # Customer Churn Prediction Dashboard
 
-This project predicts whether a telecom customer will churn (leave the service) based on historical data. The solution includes **data preprocessing**, **model training**, **evaluation**, and **explanability** via SHAP - all accessible through a user-friendly **Streamlit Dasboard**.
+This project predicts whether a telecom customer will churn (leave the service) based on historical data. The solution includes **data preprocessing**, **model training**, **evaluation**, and **explanability** via SHAP - all accessible through a user-friendly **Streamlit Dasboard**. 
 
 ---
 
@@ -13,6 +13,7 @@ This project predicts whether a telecom customer will churn (leave the service) 
   - Model Evaluation (F1, ROC AUC, Confusion Matrix, Classification Report)
   - Model Explainability using SHAP
   - Interactive Web Dashboard with Streamlit
+- Containerised with Docker - ensure compatibility across machines
  
 ---
 
@@ -34,6 +35,7 @@ Customer-Churn-Predictor/
 - main.py: Local testing script (not Streamlit)
 - requirements.txt: Python dependencies
 - README.md: Project overview
+- Dockerfile: Dependencies in order to run the application
 
 ---
 
@@ -72,9 +74,14 @@ Before deploying the app, all components were:
 ## How to run
 ### Local
 1. Clone the repository
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-3. Run the app
-   ```
-   python -m streamlit run app/app.py
+2. Ensure you have Docker installed. Build it with:
+  ```
+  docker build -t churn-dashboard .
+  ```
+3. Then run this command:
+  ```
+  docker run -p 8501:8501 churn-dashboard
+  ```
+4. The web application is available via: 
+  http://localhost:8501/
+5. Click on Train the model to see the results and analysis.

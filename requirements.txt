@@ -4,3 +4,6 @@ numpy
 matplotlib
 scikit-learn
 shap
+seaborn
+xgboost
+ipython
